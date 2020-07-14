@@ -13,12 +13,7 @@ node {
         app = docker.build("manishapisal12/new1")
     }
 
-    stage('Test image') {
-        
-        app.inside {
-            echo "Tests passed"
-        }
-    }
+   
 
     stage('Push image') {
         /* 
