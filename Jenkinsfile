@@ -25,7 +25,7 @@ node {
                 echo "Trying to Push Docker Build to DockerHub"
     }
 	stage('pull image'){
-	    docker.withRegistry('https://registry.hub.docker.com''dockerhub'){ 
+	    docker.withRegistry('https://registry.hub.docker.com','dockerhub'){ 
 
             app = docker.image('manishapisal12/new2')
             app.pull("latest1")
