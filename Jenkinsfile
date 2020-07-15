@@ -10,7 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("manishapisal12/new1")
+        app = docker.build("manishapisal12/new2")
     }
 
    
@@ -20,15 +20,15 @@ node {
 		*/
         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
             app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+            app.push("latest1")
             } 
                 echo "Trying to Push Docker Build to DockerHub"
     }
 	stage('pull image'){
-	    docker.withRegistry('https://registry.hub.docker.com'){ 
+	    docker.withRegistry('https://registry.hub.docker.com''dockerhub'){ 
 
-            app = docker.image('new1:latest')
-            app.pull()
+            app = docker.image('manishapisal12/new2')
+            app.pull("latest1")
 			}
 			    echo "Trying to pull docker image from dockerhub"
 }
